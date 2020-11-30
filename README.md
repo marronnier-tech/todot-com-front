@@ -1,3 +1,6 @@
+# 移転前の履歴は以下で見られます。
+[以前のレポジトリ](https://github.com/tocchy-tocchy/go_diary)
+
 # vue
 
 > A Vue.js project
