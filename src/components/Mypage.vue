@@ -4,6 +4,7 @@
       <h1>Hello, {{ user.UserName }}!</h1>
       <p>あなたの今の日課はこちらです。</p>
     </div>
+    <h2>◎ 今日はまだやっていない日課</h2>
     <ul>
       <li
         class="todo-set todo-yet"
@@ -24,6 +25,10 @@
           <p class="created-at">{{ todo.CreatedAt }}</p>
         </div>
       </li>
+    </ul>
+    <br />
+    <h2>◎ 今日は完了している日課</h2>
+    <ul>
       <li
         class="todo-set todo-get"
         v-for="todo in todosGet"
@@ -126,6 +131,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h2 {
+  font-size: 1.1em;
+  text-align: left;
+  padding-left: -2em;
+}
 h4 {
   font-weight: normal;
   padding-top: 0.5em;
