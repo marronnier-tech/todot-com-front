@@ -70,7 +70,11 @@
           }}</a>
         </p>
       </div>
-      <b-button :pressed="false" variant="info" class="edit-profile"
+      <b-button
+        :pressed="false"
+        variant="info"
+        class="edit-profile"
+        to="edit-profile"
         >編集する</b-button
       >
       ※メンテナンス中のため動きません
