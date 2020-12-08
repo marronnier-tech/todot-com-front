@@ -73,7 +73,7 @@
           <b-form-input id="handle-name" v-model="UserInfo.URL"></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="info">Submit</b-button>
+        <b-button type="submit" variant="info" to="/profile">Submit</b-button>
       </b-form>
     </div>
   </div>
@@ -97,14 +97,14 @@ export default {
   methods: {
     SubmitProf() {
       const params = new URLSearchParams();
-      params.append("HN", this.UserInfo.HN);
-      params.append("FinalGoal", this.UserInfo.FinalGoal);
-      params.append("Profile", this.UserInfo.Profile);
-      params.append("Twitter", this.UserInfo.Twitter);
-      params.append("Instagram", this.UserInfo.Instagram);
-      params.append("Facebook", this.UserInfo.Facebook);
-      params.append("Github", this.UserInfo.Github);
-      params.append("URL".this.UserInfo.URL);
+      params.append("handle_name", this.UserInfo.HN);
+      params.append("final_goal", this.UserInfo.FinalGoal);
+      params.append("profile", this.UserInfo.Profile);
+      params.append("twitter", this.UserInfo.Twitter);
+      params.append("instagram", this.UserInfo.Instagram);
+      params.append("facebook", this.UserInfo.Facebook);
+      params.append("github", this.UserInfo.Github);
+      params.append("url".this.UserInfo.URL);
       axios.patch("/profile", params).then((res) => {
         this.$router.push({ name: "Profile" });
       });
