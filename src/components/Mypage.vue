@@ -4,7 +4,7 @@
       <h1>Hello, {{ user.UserName }}!</h1>
       <p>あなたの今の日課はこちらです。</p>
     </div>
-    <h3 class="todo-title">◎ 本日未達成</h3>
+    <h2>◎ 今日はまだやっていない日課</h2>
     <ul>
       <li
         class="todo-set todo-yet"
@@ -26,7 +26,8 @@
         </div>
       </li>
     </ul>
-    <h3 class="todo-title">◎ 本日達成済み</h3>
+    <br />
+    <h2>◎ 今日は完了している日課</h2>
     <ul>
       <li
         class="todo-set todo-get"
@@ -130,10 +131,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.todo-title {
+h2 {
+  font-size: 1.1em;
   text-align: left;
-  font-size: 1.3em;
-  margin-top: 2em;
+  padding-left: -2em;
 }
 h4 {
   font-weight: normal;
