@@ -3,10 +3,12 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+require('dotenv').config();
+const goapi = process.env.GO_API
 
 module.exports = {
   devServer: {
-    proxy: 'http://localhost:8080'
+    proxy: goapi
   },
   dev: {
     // Paths
@@ -22,35 +24,35 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/todo': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/goal': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/profile': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/mypage': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/login': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/logout': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/register': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
       '/adminflag': {
-        target: 'http://localhost:8080',
+        target: goapi,
         changeOrigin: true
       },
     },
@@ -93,9 +95,40 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 
-    /**
-     * Source Maps
-     */
+    proxyTable: {
+      '/todo': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/goal': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/profile': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/mypage': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/login': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/logout': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/register': {
+        target: goapi,
+        changeOrigin: true
+      },
+      '/adminflag': {
+        target: goapi,
+        changeOrigin: true
+      },
+    },
 
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
