@@ -7,7 +7,6 @@ require('dotenv').config();
 const goapi = process.env.GO_API
 
 module.exports = {
-  publicPath: './',
   devServer: {
     proxy: goapi
   },
