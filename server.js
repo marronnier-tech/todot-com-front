@@ -11,7 +11,7 @@ const corsOption = {
     credentials: true,
 }
 app.use(serveStatic(__dirname + "/dist"));
-app.use(cors())
+app.use(cors(corsOption))
 
 var port = process.env.PORT || 5000;
 app.listen(port);
