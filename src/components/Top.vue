@@ -13,6 +13,9 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
+
+console.log("goAPI.apiUrl = ", goapi.apiUrl)
 export default {
   name: "Top",
   data() {
