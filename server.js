@@ -1,8 +1,18 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 var serveStatic = require('serve-static');
-app = express();
+const app = express();
+const corsOption = {
+    origin: [
+        "https://todot-com-api.herokuapp.com/",
+        "https://todot-com.herokuapp.com/",
+    ],
+    credentials: true,
+}
 app.use(serveStatic(__dirname + "/dist"));
+app.use(cors())
+
 var port = process.env.PORT || 5000;
 app.listen(port);
 console.log('server started ' + port);
