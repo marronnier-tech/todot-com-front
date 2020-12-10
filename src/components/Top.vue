@@ -15,7 +15,6 @@
 import axios from "axios";
 import goapi from "goAPI";
 
-console.log("goAPI.apiUrl = ", goapi.apiUrl)
 export default {
   name: "Top",
   data() {
@@ -24,7 +23,7 @@ export default {
     };
   },
   mounted: function () {
-    axios.get("/adminflag").then((res) => {
+    axios.get(goapi.apiUrl + "/adminflag").then((res) => {
       this.loginFlag = res.data.LoginFlag;
     });
   },
