@@ -47,7 +47,7 @@
 
 <script>
 import axios from "axios";
-
+import goapi from "goAPI";
 export default {
   name: "Todo",
   message: "Not yet",
@@ -64,7 +64,7 @@ export default {
     },
   },
   mounted: function () {
-    axios.get("/todo/" + this.id).then((res) => {
+    axios.get(goapi.apiUrl + "/todo/" + this.id).then((res) => {
       this.user = res.data.Todo.User;
       /* ↓あとでまとめる↓ */
       this.todosYet = res.data.Todo.TodoObj.filter(

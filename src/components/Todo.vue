@@ -54,6 +54,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 
 export default {
   name: "Todo",
@@ -65,7 +66,7 @@ export default {
     };
   },
   mounted: function () {
-    axios.get("/todo").then((res) => {
+    axios.get(goapi.apiUrl + "/todo").then((res) => {
       this.todosYet = res.data.TodoArray.filter(
         (t) => t.TodoObj.TodayAchieved === false
       );

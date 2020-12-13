@@ -32,6 +32,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 export default {
   data() {
     return {
@@ -45,7 +46,7 @@ export default {
       params.append("name", this.name);
       params.append("password", this.password);
       axios
-        .post("/login", params)
+        .post(goapi.apiUrl + "/login", params)
         .then((res) => {
           this.$router.push({ name: "Mypage" });
         })

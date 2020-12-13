@@ -74,6 +74,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 
 export default {
   name: "Todo",
@@ -91,7 +92,7 @@ export default {
   },
   methods: {
     GetAndSep() {
-      axios.get("/mypage").then((res) => {
+      axios.get(goapi.apiUrl + "/mypage").then((res) => {
         this.user = res.data.Todo.User;
         /* ↓あとでまとめる↓ */
         this.todosYet = res.data.Todo.TodoObj.filter(
@@ -106,7 +107,7 @@ export default {
       const params = new URLSearchParams();
       params.append("content", this.content);
       axios
-        .post("/mypage", params)
+        .post(goapi.apiUrl + "/mypage", params)
         .then((postres) => {
           this.GetAndSep();
         })
@@ -116,14 +117,16 @@ export default {
         });
     },
     Yatta(todo_id) {
-      axios.post("mypage/" + todo_id + "/today").then((res) => {
+      axios.post(goapi.apiUrl + "mypage/" + todo_id + "/today").then((res) => {
         this.GetAndSep();
       });
     },
     unGet(todo_id) {
-      axios.delete("mypage/" + todo_id + "/today").then((res) => {
-        this.GetAndSep();
-      });
+      axios
+        .delete(goapi.apiUrl + "mypage/" + todo_id + "/today")
+        .then((res) => {
+          this.GetAndSep();
+        });
     },
   },
 };

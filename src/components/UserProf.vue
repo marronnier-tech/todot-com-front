@@ -80,6 +80,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 export default {
   name: "Profile",
   data() {
@@ -93,7 +94,7 @@ export default {
     },
   },
   mounted: function () {
-    axios.get("/profile/" + this.id).then((res) => {
+    axios.get(goapi.apiUrl + "/profile/" + this.id).then((res) => {
       this.UserInfo = res.data.UserInfo;
       console.log(res.data);
     });
