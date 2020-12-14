@@ -92,22 +92,24 @@ export default {
   },
   methods: {
     GetAndSep() {
-      axios.get(goapi.apiUrl + "/mypage").then((res) => {
-        this.user = res.data.Todo.User;
-        /* ↓あとでまとめる↓ */
-        this.todosYet = res.data.Todo.TodoObj.filter(
-          (t) => t.TodayAchieved === false
-        );
-        this.todosGet = res.data.Todo.TodoObj.filter(
-          (t) => t.TodayAchieved === true
-        );
-      });
+      axios
+        .get(goapi.apiUrl + "/mypage", { withCredentials: true })
+        .then((res) => {
+          this.user = res.data.Todo.User;
+          /* ↓あとでまとめる↓ */
+          this.todosYet = res.data.Todo.TodoObj.filter(
+            (t) => t.TodayAchieved === false
+          );
+          this.todosGet = res.data.Todo.TodoObj.filter(
+            (t) => t.TodayAchieved === true
+          );
+        });
     },
     AddTodo() {
       const params = new URLSearchParams();
       params.append("content", this.content);
       axios
-        .post(goapi.apiUrl + "/mypage", params)
+        .post(goapi.apiUrl + "/mypage", params, { withCredentials: true })
         .then((postres) => {
           this.GetAndSep();
         })
@@ -117,13 +119,23 @@ export default {
         });
     },
     Yatta(todo_id) {
-      axios.post(goapi.apiUrl + "mypage/" + todo_id + "/today").then((res) => {
-        this.GetAndSep();
-      });
+      axios
+        .post(
+          goapi.apiUrl + "/mypage/" + todo_id + "/today",
+          {},
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          this.GetAndSep();
+        });
     },
     unGet(todo_id) {
       axios
-        .delete(goapi.apiUrl + "mypage/" + todo_id + "/today")
+        .delete(goapi.apiUrl + "/mypage/" + todo_id + "/today", {
+          withCredentials: true,
+        })
         .then((res) => {
           this.GetAndSep();
         });

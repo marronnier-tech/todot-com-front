@@ -49,10 +49,12 @@ export default {
     };
   },
   mounted: function () {
-    axios.get(goapi.apiUrl + "/mypage/goal").then((res) => {
-      this.goals = res.data.Goal;
-      console.log(res);
-    });
+    axios
+      .get(goapi.apiUrl + "/mypage/goal", { withCredentials: true })
+      .then((res) => {
+        this.goals = res.data.Goal;
+        console.log(res);
+      });
   },
 };
 </script>

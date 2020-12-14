@@ -23,7 +23,7 @@ export default {
   methods: {
     logout() {
       axios
-        .delete(goapi.apiUrl + "/logout")
+        .delete(goapi.apiUrl + "/logout", { withCredentials: true })
         .then((res) => {
           this.$parent.loginFlag = false;
           this.$router.push({ name: "Top" });

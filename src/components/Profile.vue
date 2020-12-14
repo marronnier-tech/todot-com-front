@@ -93,7 +93,7 @@ export default {
     };
   },
   mounted: function () {
-    axios.get(goapi.apiUrl + "/profile").then((res) => {
+    axios.get(goapi.apiUrl + "/profile",  { withCredentials: true }).then((res) => {
       this.UserInfo = res.data.UserInfo;
       console.log(res.data);
     });
