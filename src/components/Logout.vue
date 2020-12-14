@@ -12,6 +12,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 export default {
   name: "Logout",
   data() {
@@ -22,7 +23,7 @@ export default {
   methods: {
     logout() {
       axios
-        .delete("/logout")
+        .delete(goapi.apiUrl + "/logout", { withCredentials: true })
         .then((res) => {
           this.$parent.loginFlag = false;
           this.$router.push({ name: "Top" });

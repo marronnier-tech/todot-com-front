@@ -23,9 +23,11 @@ export default {
     };
   },
   mounted: function () {
-    axios.get(goapi.apiUrl + "/adminflag").then((res) => {
-      this.loginFlag = res.data.LoginFlag;
-    });
+    axios
+      .get(goapi.apiUrl + "/adminflag", { withCredentials: true })
+      .then((res) => {
+        this.loginFlag = res.data.LoginFlag;
+      });
   },
 };
 </script>

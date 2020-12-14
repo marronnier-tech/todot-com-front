@@ -81,6 +81,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 export default {
   name: "Profile",
   data() {
@@ -89,10 +90,12 @@ export default {
     };
   },
   mounted: function () {
-    axios.get("/profile").then((res) => {
-      this.UserInfo = res.data.UserInfo;
-      console.log(res.data);
-    });
+    axios
+      .get(goapi.apiUrl + "/profile", { withCredentials: true })
+      .then((res) => {
+        this.UserInfo = res.data.UserInfo;
+        console.log(res.data);
+      });
   },
   methods: {
     SubmitProf() {
@@ -105,7 +108,7 @@ export default {
       params.append("facebook", this.UserInfo.Facebook);
       params.append("github", this.UserInfo.Github);
       params.append("url".this.UserInfo.URL);
-      axios.patch("/profile", params).then((res) => {
+      axios.patch(goapi.apiUrl + "/profile", params).then((res) => {
         this.$router.push({ name: "Profile" });
       });
     },

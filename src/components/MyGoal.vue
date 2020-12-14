@@ -38,6 +38,7 @@
 
 <script>
 import axios from "axios";
+import goapi from "goAPI";
 
 export default {
   name: "Goal",
@@ -48,10 +49,12 @@ export default {
     };
   },
   mounted: function () {
-    axios.get("/mypage/goal").then((res) => {
-      this.goals = res.data.Goal;
-      console.log(res);
-    });
+    axios
+      .get(goapi.apiUrl + "/mypage/goal", { withCredentials: true })
+      .then((res) => {
+        this.goals = res.data.Goal;
+        console.log(res);
+      });
   },
 };
 </script>
