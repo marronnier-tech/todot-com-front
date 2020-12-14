@@ -1,3 +1,3 @@
 export default {
-    apiUrl: 'http://todot-com-api.herokuapp.com'
+    apiUrl: 'https://todot-com-api.herokuapp.com'
 }

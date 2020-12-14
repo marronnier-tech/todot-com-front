@@ -5,7 +5,7 @@ var serveStatic = require('serve-static');
 const app = express();
 const corsOption = {
     origin: [
-        "http://todot-com-api.herokuapp.com",
+        "https://todot-com-api.herokuapp.com",
         "https://todot-com.herokuapp.com",
     ],
     credentials: true,
