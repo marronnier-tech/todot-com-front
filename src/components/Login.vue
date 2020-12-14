@@ -33,6 +33,7 @@
 <script>
 import axios from "axios";
 import goapi from "goAPI";
+import VueSession from "vue-session";
 export default {
   data() {
     return {
