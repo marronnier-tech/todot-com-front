@@ -45,9 +45,11 @@ export default {
       const params = new URLSearchParams();
       params.append("name", this.name);
       params.append("password", this.password);
-      axios.post(goapi.apiUrl + "/register", params,  { withCredentials: true }).then((res) => {
-        this.$router.push({ name: "Mypage" });
-      });
+      axios
+        .post(goapi.apiUrl + "/register", params, { withCredentials: true })
+        .then((res) => {
+          this.$router.push({ name: "Mypage" });
+        });
     },
   },
 };
