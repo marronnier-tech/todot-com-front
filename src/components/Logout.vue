@@ -25,6 +25,7 @@ export default {
       axios
         .delete(goapi.apiUrl + "/logout", { withCredentials: true })
         .then((res) => {
+          this.$session.destroy();
           this.$parent.loginFlag = false;
           this.$router.push({ name: "Top" });
         })

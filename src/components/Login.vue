@@ -49,6 +49,9 @@ export default {
       axios
         .post(goapi.apiUrl + "/login", params, { withCredentials: true })
         .then((res) => {
+          this.$session.set("jwt", response.body.token);
+          Vue.http.headers.common["Authorization"] =
+            "Bearer " + response.body.token;
           this.$router.push({ name: "Mypage" });
         })
         .catch((error) => {
