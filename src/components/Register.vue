@@ -3,6 +3,7 @@
     <form class="form-signin" @submit.prevent="registerForm">
       <!-- <img class="mb-4" src="" alt="" width="72" height="72" /> -->
       <h1 class="h3 mb-3 font-weight-normal">登録する</h1>
+      <h1>現在メンテナンス中です！！</h1>
       <label for="name" class="sr-only">ユーザー名</label>
       <input
         v-model="name"
@@ -45,11 +46,12 @@ export default {
       const params = new URLSearchParams();
       params.append("name", this.name);
       params.append("password", this.password);
-      axios
-        .post(goapi.apiUrl + "/register", params, { withCredentials: true })
-        .then((res) => {
-          this.$router.push({ name: "Mypage" });
-        });
+      // axios
+      //   .post(goapi.apiUrl + "/register", params, { withCredentials: true })
+      //   .then((res) => {
+      //     this.$router.push({ name: "Mypage" });
+      //   });
+      alert("現在メンテナンス中です");
     },
   },
 };

@@ -3,6 +3,7 @@
     <form class="form-signin" @submit.prevent="submitForm">
       <!-- <img class="mb-4" src="" alt="" width="72" height="72" /> -->
       <h1 class="h3 mb-3 font-weight-normal">ログインする</h1>
+      <h1>現在メンテナンス中です。</h1>
       <label for="name" class="sr-only">ユーザー名</label>
       <input
         v-model="name"
@@ -56,7 +57,7 @@ export default {
           this.$router.push({ name: "Mypage" });
         })
         .catch((error) => {
-          alert("ユーザー名もしくはパスワードが違います");
+          alert("現在メンテナンス中です");
         });
     },
   },
